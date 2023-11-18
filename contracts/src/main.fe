@@ -1,0 +1,58 @@
+use std::buf::{MemoryBuffer, MemoryBufferWriter, MemoryBufferReader}
+use std::evm::keccak256_mem
+use std::precompiles
+
+struct Checker { res: u256} 
+
+contract MerfleProof {
+    pub fn verify(proof: Array<u256, 3>, root: u256, leaf: u256) -> bool {
+        return process_proof(proof: proof, leaf) == root
+    }
+
+    fn process_proof(proof: Array<u256, 3>, leaf: u256) -> u256 {
+        let mut computedHash: u256 = leaf
+
+        let mut i: u8 = 0
+        while i < 3 {
+            computedHash = hash(a: computedHash, b: proof[i])
+            i += 1
+        } 
+        return computedHash
+    }
+
+    pub fn multi_verify(proof: Array<u256, 5>, proof_flags: Array<bool, 6>, root: u256, leaf: Array<u256, 3>) -> bool {
+    }
+
+    fn multi_process_proof(proof: Array<u256, 5>, proof_flags: Array<bool, 6>, leaf: Array<u256, 3>) -> u256 {
+        u256 leavesLen = leaves.length
+        u256 proofLen = proof.length
+        u256 totalHashes = proofFlags.length
+
+        
+    }
+}
+
+fn hash(a: u256, b: u256) -> u256 {
+    let mut buf: MemoryBuffer = MemoryBuffer::new(len: 64)
+    let mut writer: MemoryBufferWriter = buf.writer()
+
+    if a < b {
+        writer.write(value: a)
+        writer.write(value: b)
+    } else {
+        writer.write(value: b)
+        writer.write(value: a)
+    }
+
+    let result: u256 = keccak256_mem(buf)
+
+    // ctx.emit(result)
+    return result 
+}
+
+// #test
+// fn test_merkle_proof(mut ctx: Context) {
+//     // Create a new `Main` contract via `ctx` and test that `get_42` return 42.
+//     let main: MerfleProof = MerfleProof.create(ctx, 0)
+//     assert main.get_42() == 42
+// }

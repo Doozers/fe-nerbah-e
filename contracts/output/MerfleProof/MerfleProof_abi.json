@@ -1,0 +1,136 @@
+[
+  {
+    "type": "function",
+    "name": "verify",
+    "inputs": [
+      {
+        "name": "proof",
+        "type": "uint256[3]"
+      },
+      {
+        "name": "root",
+        "type": "uint256"
+      },
+      {
+        "name": "leaf",
+        "type": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "pure"
+  },
+  {
+    "type": "event",
+    "name": "Checker",
+    "inputs": [
+      {
+        "name": "res",
+        "type": "uint256",
+        "indexed": false
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "MemoryBuffer",
+    "inputs": [
+      {
+        "name": "offset",
+        "type": "uint256",
+        "indexed": false
+      },
+      {
+        "name": "len",
+        "type": "uint256",
+        "indexed": false
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "MemoryBufferWriter",
+    "inputs": [
+      {
+        "name": "buf",
+        "type": "tuple",
+        "components": [
+          {
+            "name": "offset",
+            "type": "uint256"
+          },
+          {
+            "name": "len",
+            "type": "uint256"
+          }
+        ],
+        "indexed": false
+      },
+      {
+        "name": "cur",
+        "type": "tuple",
+        "components": [
+          {
+            "name": "cur",
+            "type": "uint256"
+          },
+          {
+            "name": "len",
+            "type": "uint256"
+          }
+        ],
+        "indexed": false
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "MemoryBufferReader",
+    "inputs": [
+      {
+        "name": "buf",
+        "type": "tuple",
+        "components": [
+          {
+            "name": "offset",
+            "type": "uint256"
+          },
+          {
+            "name": "len",
+            "type": "uint256"
+          }
+        ],
+        "indexed": false
+      },
+      {
+        "name": "cur",
+        "type": "tuple",
+        "components": [
+          {
+            "name": "cur",
+            "type": "uint256"
+          },
+          {
+            "name": "len",
+            "type": "uint256"
+          }
+        ],
+        "indexed": false
+      }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "Context",
+    "inputs": [],
+    "anonymous": false
+  }
+]
