@@ -2,18 +2,13 @@
   {
     "type": "constructor",
     "name": "__init__",
-    "inputs": [
-      {
-        "name": "root",
-        "type": "uint256"
-      }
-    ],
+    "inputs": [],
     "outputs": [],
     "stateMutability": "payable"
   },
   {
     "type": "function",
-    "name": "verify",
+    "name": "claim",
     "inputs": [
       {
         "name": "proof",
@@ -33,33 +28,14 @@
     "stateMutability": "view"
   },
   {
-    "type": "function",
-    "name": "multi_verify",
-    "inputs": [
-      {
-        "name": "proof",
-        "type": "uint256[5]"
-      },
-      {
-        "name": "proof_flags",
-        "type": "bool[6]"
-      },
-      {
-        "name": "leaves",
-        "type": "uint256[2]"
-      }
-    ],
-    "outputs": [
-      {
-        "name": "",
-        "type": "bool"
-      }
-    ],
-    "stateMutability": "view"
+    "type": "event",
+    "name": "MerkleProofInvalidMultiproof",
+    "inputs": [],
+    "anonymous": false
   },
   {
     "type": "event",
-    "name": "MerkleProofInvalidMultiproof",
+    "name": "RootIsAlreadyDefined",
     "inputs": [],
     "anonymous": false
   },

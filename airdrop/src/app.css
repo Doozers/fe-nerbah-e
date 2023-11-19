@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: Neue Machina;
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/neue-machina-regular.ttf") format("ttf"), url("/fonts/neue-machina-regular.otf") format("opentype"),
+    url("/fonts/neue-machina-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Space Grotesk;
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/space-grotesk-regular.ttf") format("ttf"), url("/fonts/space-grotesk-regular.otf") format("opentype"),
+    url("/fonts/space-grotesk-regular.woff2") format("woff2");
+}
+
+@layer base {
+  html {
+    @apply bg-darker font-space;
+  }
+
+  body {
+    @apply min-h-screen flex flex-col items-center;
+  }
+}
+
+@keyframes loading {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.pulse-loading {
+  animation: loading 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* -------------------- */
+/* - nProgress styles - */
+/* -------------------- */
+
+#nprogress {
+  @apply pointer-events-none absolute;
+}
+
+#nprogress .bar {
+  @apply fixed z-50 top-0 left-0 w-full h-[2px];
+  background: radial-gradient(circle, #ffb82f 0%, #b0b8ff 40%, #131313ff 85%);
+}

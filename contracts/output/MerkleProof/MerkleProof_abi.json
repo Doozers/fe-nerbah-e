@@ -1,7 +1,7 @@
 [
   {
-    "type": "constructor",
-    "name": "__init__",
+    "type": "function",
+    "name": "set_root",
     "inputs": [
       {
         "name": "root",
@@ -60,6 +60,12 @@
   {
     "type": "event",
     "name": "MerkleProofInvalidMultiproof",
+    "inputs": [],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "RootIsAlreadyDefined",
     "inputs": [],
     "anonymous": false
   },
